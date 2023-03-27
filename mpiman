@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # Python script for get man mages for any MPI binding.
 #
 # Originally mostly intended for MPI C++ bindings, but also useful for
@@ -255,16 +255,16 @@ def find(arg):
 def mpiman(key):
     realkey = find(key)
     if realkey == "":
-        print key + " not in mpi manpage list."
+        print(key + " not in mpi manpage list.")
     else:
         os.system("man " + realkey)
  
 #Program starts here: Loops over all arguments (except the first, which is mpiman itself)
 if (len(sys.argv) == 1):
-    print "a list of c++ bindings:"
+    print("a list of c++ bindings:")
     for all in sorted(mpi_bindings.keys()):
         if all.startswith("MPI::"):
-            print all
+            print(all)
 else:
     for arg in sys.argv[1:]:
         mpiman(arg)
